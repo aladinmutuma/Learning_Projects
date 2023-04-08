@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box; /** universal so that if we add and padding or border to an element, it doesn't affect it's width**/
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden; /**Not to show scroll bars by default **/
+    margin: 0;
+}
+
+.container {
+    display: flex;  /** Puts out container and its children into a row **/
+    width: 90vb;
+}
+
+.panel {
+    background-size: auto 100%; /**To preserve rounded corners on big screens **/
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px; /**This makes the border edges rounded. **/
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5; /** Make the panels the same size **/
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in; /**Should ease in a different panel when it becomes active in 0.7 seconds **/
+}
+
+.panel h3 {
+    font-size: 24px;
+    position: absolute; /**Because position of the panel is relative **/
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0; /** Hide them. Will only show when the panel is active **/
+    transition: opacity 0.3s ease-in delay 0.4s;
+}
+
+.panel.active {
+    flex: 5; /** Change the flex to 5 if the panel is active **/
+}
+
+.panel.active h3 {
+    opacity: 1;
+}
+
+@media (max-width: 480px) { /** To limit the number of panels in small screens **/
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4), 
+    .panel:nth-of-type(5) {
+        display: none;
+
+    }
+}
