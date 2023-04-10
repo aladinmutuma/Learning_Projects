@@ -15,7 +15,7 @@ next.addEventListener('click', () => {
     update()
 })
 
-prev.addEventListener('click', () => {
+prev.addEventListener('click', () => { /*Set Click as the option to instigate change */
     currentActive--
 
     if(currentActive < 1) {
